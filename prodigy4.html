@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Portfolio</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+  }
+
+  .container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+  }
+
+  header {
+    background-color: #7307f7;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  header h1 {
+    margin: 0;
+  }
+
+  .profile {
+    text-align: center;
+    margin: 50px 0;
+  }
+
+  .profile img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+    object-fit: cover;
+  }
+
+  .profile h2 {
+    margin: 0;
+  }
+
+  .profile p {
+    margin: 20px 0;
+  }
+
+  .skills {
+    margin: 50px 0;
+  }
+
+  .skills h3 {
+    margin-bottom: 20px;
+  }
+
+  .skills ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .skills li {
+    margin-bottom: 10px;
+  }
+
+  .portfolio-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 50px 0;
+  }
+
+  .portfolio-item {
+    width: calc(50% - 20px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+
+  .portfolio-item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+
+  .portfolio-item:hover img {
+    transform: scale(1.1);
+  }
+
+  footer {
+    background-color: #ff9100;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .portfolio-item {
+      width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>My Personal Portfolio</h1>
+</header>
+
+<div class="container">
+  <div class="profile">
+    <img src="profile.jpg" alt="Profile Picture">
+    <h2>Abhishek Goswami</h2>
+    <p>Web Developer | Designer | Be U, The World Will Adjust</p>
+  </div>
+
+  <div class="skills">
+    <h3>Skills</h3>
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>Python</li>
+      <li>Photoshop</li>
+    </ul>
+  </div>
+
+  <div class="portfolio-items">
+    <div class="portfolio-item">
+      <img src="project1.jpg" alt="Project 1">
+    </div>
+    <div class="portfolio-item">
+      <img src="project2.jpg" alt="Project 2">
+    </div>
+    <div class="portfolio-item">
+      <img src="project3.jpg" alt="Project 3">
+    </div>
+    <div class="portfolio-item">
+      <img src="project4.jpg" alt="Project 4">
+    </div>
+  </div>
+</div>
+<footer>
+  <p>&copy; 2024 Abhishek Goswami. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Web Page</title>
+<style>
+  /* Reset some default styles */
+  body, h1, p {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Create a container for the grid */
+  .container {
+    display: grid;
+    grid-template-areas:
+      "header header header"
+      "sidebar main main"
+      "footer footer footer";
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-gap: 10px;
+    height: 100vh;
+  }
+
+  /* Define the grid areas for the elements */
+  header, footer, aside {
+    background-color: rgb(241, 34, 34);
+    padding: 10px;
+  }
+
+  main {
+    background-color: rgb(71, 33, 236);
+    padding: 10px;
+  }
+
+  header {
+    grid-area: header;
+  }
+
+  aside {
+    grid-area: sidebar;
+  }
+
+  main {
+    grid-area: main;
+  }
+
+  footer {
+    grid-area: footer;
+  }
+
+  /* Media query for smaller screens */
+  @media (max-width: 600px) {
+    .container {
+      grid-template-areas:
+        "header"
+        "main"
+        "sidebar"
+        "footer";
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>Header</header>
+  <aside>Sidebar</aside>
+  <main>Main Content</main>
+  <footer>Footer</footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stopwatch</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  #stopwatch {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  button {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #23f72a;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  button:active {
+    transform: scale(0.98);
+  }
+
+  button:focus {
+    outline: none;
+  }
+</style>
+</head>
+<body>
+
+<div id="stopwatch">00:00:00</div>
+<button id="startStop" onclick="startStop()">Start</button>
+<button id="reset" onclick="reset()">Reset</button>
+
+<script>
+  let startTime;
+  let updatedTime;
+  let difference;
+  let tInterval;
+  let running = false;
+  let time = 0;
+
+  function startStop() {
+    if (!running) {
+      startTime = new Date().getTime();
+      tInterval = setInterval(getShowTime, 1);
+      running = true;
+      document.getElementById('startStop').textContent = 'Stop';
+    } else {
+      clearInterval(tInterval);
+      running = false;
+      document.getElementById('startStop').textContent = 'Start';
+    }
+  }
+
+  function reset() {
+    clearInterval(tInterval);
+    running = false;
+    time = 0;
+    document.getElementById('startStop').textContent = 'Start';
+    document.getElementById('stopwatch').innerHTML = '00:00:00';
+  }
+
+  function getShowTime() {
+    updatedTime = new Date().getTime();
+    if (running) {
+      time = updatedTime - startTime;
+    }
+    let hours = Math.floor((time / (1000 * 60 * 60)) % 24);
+    let minutes = Math.floor((time / (1000 * 60)) % 60);
+    let seconds = Math.floor((time / 1000) % 60);
+    let milliseconds = Math.floor((time % 1000) / 10);
+    hours = (hours < 10) ? "0" + hours : hours;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
+    milliseconds = (milliseconds < 10) ? "0" + milliseconds : milliseconds;
+    document.getElementById('stopwatch').innerHTML = hours + ':' + minutes + ':' + seconds + ':' + milliseconds;
+  }
+</script>
+
+</body>
+</html>
